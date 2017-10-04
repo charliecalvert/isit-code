@@ -1,7 +1,7 @@
 {
   "name": "isit-code",
   "version": "1.0.0",
-  "description": "\"Elvenware code samples and utilities. For general use and for BC students\"",
+  "description": "Code samples and utilities.",
   "main": "index.js",
   "scripts": {
     "test": "nodemon jasmine-runner.js"
@@ -17,12 +17,8 @@
   ],
   "author": "Charlie Calvert",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/charliecalvert/JsObjects/issues"
-  },
-  "homepage": "https://github.com/charliecalvert/JsObjects#readme",
   "dependencies": {
-    "debug": "^3.0.1",
+    "debug": "^3.1.0",
     "mkdirp": "^0.5.1",
     "uuid": "^3.1.0",
     "walk": "^2.3.9"
@@ -34,7 +30,7 @@
     "grunt-jsbeautifier": "^0.2.13",
     "grunt-jscs": "^3.0.1",
     "jasmine": "^2.7.0",
-    "jasmine-spec-reporter": "^3.2.0",
+    "jasmine-spec-reporter": "^4.2.1",
     "jshint-stylish": "^2.2.1"
   }
 }
