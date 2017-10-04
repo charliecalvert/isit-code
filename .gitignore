@@ -1,0 +1,7 @@
+.idea
+node_modules
+components
+bower-components
+pubic-components
+.c9
+Thumbs.db
