@@ -154,19 +154,25 @@ elvenConfig.forceReload = function() {
     elvenConfig.loaded = false;
 };
 
-elvenConfig.get = function(level, property) {
+elvenConfig.get = function(level1, level2, level3, property) {
     'use strict';
     if (property) {
-        return elvenConfig.configFileContents[level][property];
+        return elvenConfig.configFileContents[level1][level2][level3][property];
+    } else if (level3) {
+        return elvenConfig.configFileContents[level1][level2][level3];
+    } else if (level2) {
+        return elvenConfig.configFileContents[level1][level2];
     } else {
-        return elvenConfig.configFileContents[level];
+        return elvenConfig.configFileContents[level1]
     }
 };
 
-elvenConfig.set = function(newValue, level, property) {
+elvenConfig.set = function(newValue, level1, level2, property) {
     'use strict';
     if (property) {
-        elvenConfig.configFileContents[level][property] = newValue;
+        elvenConfig.configFileContents[level1][level2][property] = newValue;
+    } else if (level2) {
+        elvenConfig.configFileContents[level1][level2] = newValue;
     } else {
         elvenConfig.configFileContents[level] = newValue;
     }

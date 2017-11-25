@@ -9,8 +9,8 @@ const mkdirp = require('mkdirp');
 const Guid = require('uuid');
 
 /**
- * All I'm really doing here is reminding myself that path.join
- * solves the problem of properly appending a file name onto a path
+ * Remember that path.join solves the problem of
+ * properly appending a file name onto a path
  *
  * @param {Object} pathName
  * @param {Object} fileName
@@ -172,6 +172,10 @@ function getFirstWord(value) {
 const getLastCharacterOfString = function(value) {
     'use strict';
     return value.substring(value.length - 1);
+};
+
+const getEndFromCharacter = function(value, char) {
+    return value.substring(value.lastIndexOf(char) + 1, value.length);
 };
 
 function htmlEscape(str) {
@@ -399,6 +403,11 @@ function readFile(fileName, callback) {
     }
 }
 
+function stripExtension(fileName) {
+    'use strict';
+    return fileName.substr(0, fileName.lastIndexOf('.'));
+}
+
 function swapExtension(fileName, ext) {
     'use strict';
     return fileName.substr(0, fileName.lastIndexOf('.')) + ext;
@@ -464,6 +473,7 @@ exports.isArray = isArray;
 exports.endsWith = endsWith;
 exports.getFirstWord = getFirstWord;
 exports.getLastCharacterOfString = getLastCharacterOfString;
+exports.getEndFromCharacter = getEndFromCharacter;
 exports.htmlEscape = htmlEscape;
 exports.htmlUnescape = htmlUnescape;
 exports.insertString = insertString;
@@ -484,5 +494,6 @@ exports.fileExists = fileExists;
 exports.getExtension = getExtension;
 exports.getFileNameFromPath = getFileNameFromPath;
 exports.readFile = readFile;
+exports.stripExtension = stripExtension;
 exports.swapExtension = swapExtension;
 exports.writeFile = writeFile;
