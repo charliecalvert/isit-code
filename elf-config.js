@@ -174,7 +174,7 @@ elvenConfig.set = function(newValue, level1, level2, property) {
     } else if (level2) {
         elvenConfig.configFileContents[level1][level2] = newValue;
     } else {
-        elvenConfig.configFileContents[level] = newValue;
+        elvenConfig.configFileContents[level1] = newValue;
     }
 };
 
