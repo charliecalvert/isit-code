@@ -56,11 +56,11 @@ describe('test elven-config suite', function() {
             .then(done);
     });
 
-    it('shows we can get the calvert keys', function(done) {
+    it('shows we can get the lastname keys', function(done) {
         elfConfig.loadAsync()
             .then(function() {
                 const keys = elfConfig.keys('users');
-                expect(keys[0]).toBe('calvert');
+                expect(keys[0]).toBe(lastname);
             })
             .catch(errorHandler)
             .then(done);
@@ -77,37 +77,26 @@ describe('test elven-config suite', function() {
             .then(done);
     });
 
-    it('shows we can get the calvert base dir', function(done) {
+    it('shows we can get the lastname base dir', function(done) {
         elfConfig.loadAsync()
             .then(function() {
-                const dir = elfConfig.get('users', 'calvert', 'base-dir');
+                const dir = elfConfig.get('users', lastname, 'base-dir');
                 expect(dir).toBe('/home/charlie/');
             })
             .catch(errorHandler)
             .then(done);
     });
 
-    it('shows we can set the calvert base dir', (done) => {
+    it('shows we can set the lastname base dir', (done) => {
         elfConfig.loadAsync()
             .then(function(config) {
                 expect(config.users[lastname]['base-dir']).toBe('/home/charlie/');
-                const dir = elfConfig.set('/home/bcuser/', 'users', 'calvert', 'base-dir');
+                const dir = elfConfig.set('/home/bcuser/', 'users', lastname, 'base-dir');
                 expect(config.users[lastname]['base-dir']).toBe('/home/bcuser/');
             })
             .catch(errorHandler)
             .then(done);
     });
-
-    /*it('shows we can change the calvert base dir', (done) => {
-        elfConfig.loadAsync()
-            .then(function(config) {
-                const dir = elfConfig.set('balvert', 'users', 'calvert');
-                expect(config.users.balvert).toBeDefined();
-            })
-            .catch(errorHandler)
-            .then(done);
-    });*/
-
 
     it('shows we can get the california elvenImages', function(done) {
         elfConfig.useLocalConfig = false;
